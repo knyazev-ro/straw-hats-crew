@@ -41,7 +41,7 @@ app.post("/register", async (req, res) => {
 });
 
 // Запуск сервера
-const PORT = process.env.PORT || 3001;
+const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
