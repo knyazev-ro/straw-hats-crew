@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios  from 'axios'
 
 const AuthForm = () => {
   const [username, setUsername] = useState('');
@@ -6,7 +7,7 @@ const AuthForm = () => {
 
   const handleLogin = () => {
     // Логика авторизации
-    console.log('Logging in with:', { username, password });
+    // axios.get('/login', {emai})
   };
 
   const handleRegister = () => {
