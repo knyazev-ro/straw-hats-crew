@@ -8,7 +8,7 @@ const AuthForm = () => {
   const handleLogin = () => {
     // Логика авторизации
     axios.get('/login', {
-      email: username,
+      username: username,
       password: password,
     })
   };
