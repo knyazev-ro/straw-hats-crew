@@ -7,11 +7,22 @@ const AuthForm = () => {
 
   const handleLogin = () => {
     // Логика авторизации
-    axios.get('/login', {
+    axios.get('http://localhost:5000/login', {
+      params:{
       username: username,
       password: password,
+      }
     })
+    .then(response => {
+      console.log(response.data.message); // Сообщение об успешной авторизации
+      // Добавьте здесь действия, которые вы хотите выполнить при успешной авторизации
+    })
+    .catch(error => {
+      console.error('Ошибка авторизации:', error.response ? error.response.data : error.message);
+      // Дополнительная логика обработки ошибки (например, показать сообщение об ошибке пользователю)
+    });
   };
+  
 
   const handleRegister = () => {
     // Логика регистрации
