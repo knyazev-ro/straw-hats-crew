@@ -19,7 +19,7 @@ const VoteCard = ({ options }) => {
           <div key={index} className="flex items-center space-x-2">
             <button
               onClick={() => handleVote(index)}
-              className="flex-1 bg-orange-100 text-black p-2 rounded-lg hover:bg-yellow-400 transition "
+              className="flex-1 bg-orange-50 text-black p-2 rounded-lg hover:bg-yellow-400 transition "
             >
               {option} {/* Название варианта */}
             </button>
