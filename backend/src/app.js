@@ -3,6 +3,7 @@ const app = express();
 const userRoutes = require("./routes/userRoutes");
 const teamRoutes = require("./routes/teamRoutes");
 const achievementRoutes = require("./routes/achievementRoutes");
+const cors = require("cors");
 
 const authMiddleware = require("./middlewares/authMiddleware");
 const errorHandler = require("./middlewares/errorHandler");
@@ -13,6 +14,14 @@ app.use(express.json());
 app.use(logger);
 
 app.use("/api/users", userRoutes);
+
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Allow only localhost:3000
+    methods: ["GET", "POST", "PUT", "DELETE"], // Define allowed methods
+    credentials: true, // Allow cookies to be sent with requests
+  })
+);
 
 //проверка входящего запроса на действительный токен JWT
 app.use("/api/teams", authMiddleware, teamRoutes);
