@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import VoteCard from "./VoteCard"; // Импорт компонента голосования
 
 const PostCard = ({
+  key,
   avatar,
   username,
   content,
@@ -17,7 +18,7 @@ const PostCard = ({
     isLongContent && !expanded ? content.slice(0, 120) + "..." : content;
 
   return (
-    <div className="flex p-4 border-b border-gray-200 bg-yellow-300 hover:bg-yellow-200 transition duration-200 max-w-xl mx-auto">
+    <div className="flex p-4 border-b border-gray-200 bg-yellow-300 hover:bg-yellow-200 transition duration-200 max-w-xl mx-auto rounded-xl">
       <div>
         {/* Аватар пользователя */}
 
@@ -40,13 +41,13 @@ const PostCard = ({
               </span>
             </div>
           </div>
-          <span className="bg-lime-50 rounded-lg px-3 py-3 flex hover:rotate-1 hover:underline">
+          <span className="bg-lime-50 rounded-xl px-3 py-3 flex hover:rotate-1 hover:underline">
             {challenge}
           </span>
         </div>
 
         {/* Текст поста */}
-        <p className="text-gray-700 mb-2">
+        <p className="text-gray-700 mb-2 px-1 py-1">
           {displayedContent}
           {isLongContent && (
             <button
@@ -70,7 +71,7 @@ const PostCard = ({
         )}
 
         {/* Компонент голосования */}
-        <VoteCard options={voteOptions} />
+        {voteOptions && <VoteCard options={voteOptions} />}
       </div>
     </div>
   );
