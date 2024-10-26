@@ -1,0 +1,8 @@
+Team:
+- /create
+- /update
+- /delete
+- /addUser
+- /removeUser
+- /find //  Получить одного
+- /findMany // Получить много
