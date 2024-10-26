@@ -19,7 +19,7 @@ app.use(
   cors({
     origin: "http://localhost:3000", // Allow only localhost:3000
     methods: ["GET", "POST", "PUT", "DELETE"], // Define allowed methods
-    credentials: true, // Allow cookies to be sent with requests
+    credentials: false, // Allow cookies to be sent with requests
   })
 );
 
