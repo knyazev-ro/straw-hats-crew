@@ -6,20 +6,21 @@ import reportWebVitals from './reportWebVitals';
 import Auth from './Auth/AuthForm';
 import RegistrationForm from './Auth/RegistrationForm';
 import UserProfileCard from './Users/UserProfileCard';
-import Post from './Components/PostCard'; 
+import PostCard from './Components/PostCard'; 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Auth />
+    {/* <Auth /> */}
     {/* <RegistrationForm/> */}
     {/* <UserProfileCard/> */}
-    {/* <Post
+    <PostCard
         avatar="https://via.placeholder.com/50"
         username="IvanIvanov"
         content="Пример текста поста, который может быть длинным. Если текст длинный, то можно будет нажать кнопку 'Показать больше', чтобы увидеть его полностью."
         image="https://via.placeholder.com/300"
-      /> */}
+        voteOptions={["Синий", "Зелёный", "Красный", "Желтый"]}
+      />
   </React.StrictMode>
 );
 
