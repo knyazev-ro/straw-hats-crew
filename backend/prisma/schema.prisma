@@ -21,6 +21,7 @@ model User {
   leads        Team[]       @relation(name: "leads")
   teams        Team[]       @relation(name: "teams")
   achivements  Achivement[]
+  Vote         Vote[]
 }
 
 model Challenge {
@@ -34,6 +35,7 @@ model Challenge {
   achivement   Achivement    @relation(fields: [achivementId], references: [id])
   achivementId Int
   posts        Post[]
+  voting       Voting?
 }
 
 model Team {
@@ -44,6 +46,7 @@ model Team {
   users       User[]    @relation(name: "teams")
   challenge   Challenge @relation(fields: [challengeId], references: [id])
   challengeId Int
+  Vote        Vote[]
 }
 
 model Achivement {
@@ -62,7 +65,39 @@ enum ChallengeType {
 
 model Post {
   id          Int       @id @default(autoincrement())
-  challengeId Int
   description String?
   challenge   Challenge @relation(fields: [challengeId], references: [id])
+  challengeId Int
+}
+
+model Voting {
+  id          Int          @id @default(autoincrement())
+  challengeId Int          @unique
+  challenge   Challenge    @relation(fields: [challengeId], references: [id])
+  type        VotingType
+  status      VotingStatus
+  createdAt   DateTime     @default(now())
+  votes       Vote[]
+}
+
+model Vote {
+  id        Int      @id @default(autoincrement())
+  votingId  Int
+  voting    Voting   @relation(fields: [votingId], references: [id])
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  teamId    Int?
+  team      Team?    @relation(fields: [teamId], references: [id])
+  choice    String
+  createdAt DateTime @default(now())
+}
+
+enum VotingType {
+  SINGLE_CHOICE
+  MULTIPLE_CHOICE
+}
+
+enum VotingStatus {
+  OPEN
+  CLOSED
 }

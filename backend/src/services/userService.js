@@ -42,6 +42,6 @@ exports.findById = async (id) => {
 //Поиск всех пользователей
 
 exports.findAll = async () => {
-  const users = await prisma.user.findAll();
+  const users = await prisma.user.findMany();
   return users;
 };
