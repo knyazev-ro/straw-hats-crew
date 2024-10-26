@@ -1,14 +1,23 @@
-import { PrismaClient } from "@prisma/client";
+const express = require("express");
+const app = express();
+const userRoutes = require("./routes/userRoutes");
+const teamRoutes = require("./routes/teamRoutes");
+const achievementRoutes = require("./routes/achievementRoutes");
 
-const prisma = new PrismaClient();
+const authMiddleware = require("./middlewares/authMiddleware");
+const errorHandler = require("./middlewares/errorHandler");
+const logger = require("./middlewares/logger"); //регистрация входящих запросов
 
-async function main() {}
+app.use(express.json());
 
-main()
-  .then(async () => {
-    await prisma.$disconnect();
-  })
-  .catch(async (e) => {
-    await prisma.$disconnect();
-    process.exit(1);
-  });
+app.use(logger);
+
+app.use("/api/users", userRoutes);
+
+//проверка входящего запроса на действительный токен JWT
+app.use("/api/teams", authMiddleware, teamRoutes);
+app.use("/api/achievements", authMiddleware, achievementRoutes);
+
+app.use(errorHandler);
+
+module.exports = app;

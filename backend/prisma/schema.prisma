@@ -18,6 +18,7 @@ model User {
   name         String
   login        String
   passwordHash String
+  type         Role
   leads        Team[]       @relation(name: "leads")
   teams        Team[]       @relation(name: "teams")
   achivements  Achivement[]
@@ -100,4 +101,9 @@ enum VotingType {
 enum VotingStatus {
   OPEN
   CLOSED
+}
+
+enum Role {
+  ADMIN
+  USER
 }
