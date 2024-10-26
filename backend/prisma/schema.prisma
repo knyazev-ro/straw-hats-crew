@@ -1,28 +1,68 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id       Int     @id @default(autoincrement())
-  email    String  @unique
-  password String
-  lastname String
-  name     String
-  goals    String?
+  id           Int          @id @default(autoincrement())
+  name         String
+  login        String
+  passwordHash String
+  leads        Team[]       @relation(name: "leads")
+  teams        Team[]       @relation(name: "teams")
+  achivements  Achivement[]
 }
 
-model Chalange {
-  id   Int    @id @default(autoincrement())
-  name String
-  type Int
+model Challenge {
+  id           Int           @id @default(autoincrement())
+  startDate    DateTime      @default(now())
+  endDate      DateTime
+  name         String
+  description  String?
+  type         ChallengeType
+  teams        Team[]
+  achivement   Achivement    @relation(fields: [achivementId], references: [id])
+  achivementId Int
+  posts        Post[]
 }
 
-//ENUM
+model Team {
+  id          Int       @id @default(autoincrement())
+  name        String
+  lead        User      @relation(fields: [leadId], references: [id], name: "leads")
+  leadId      Int
+  users       User[]    @relation(name: "teams")
+  challenge   Challenge @relation(fields: [challengeId], references: [id])
+  challengeId Int
+}
+
+model Achivement {
+  id          Int         @id @default(autoincrement())
+  title       String
+  description String
+  challenges  Challenge[]
+  users       User[]
+}
+
+enum ChallengeType {
+  LOCAL
+  TEAM
+  FAMILY
+}
+
+model Post {
+  id          Int       @id @default(autoincrement())
+  challengeId Int
+  description String?
+  challenge   Challenge @relation(fields: [challengeId], references: [id])
+}
