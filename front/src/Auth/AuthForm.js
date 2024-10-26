@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import axios  from 'axios'
+// import {useNavigate} from 'react-router-dom'
 
 const AuthForm = () => {
+  // const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
     // Логика авторизации
-    axios.get('http://localhost:5000/login', {
-      params:{
-      username: username,
+    axios.post('http://localhost:5000/api/users/login', {
+      body:{
+      login: username,
       password: password,
       }
     })
@@ -26,7 +28,7 @@ const AuthForm = () => {
 
   const handleRegister = () => {
     // Логика регистрации
-    console.log('Navigating to register');
+    // navigate('/Auth/RegistrationForm');
   };
 
   return (
