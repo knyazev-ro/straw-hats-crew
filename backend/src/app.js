@@ -13,8 +13,6 @@ app.use(express.json());
 
 app.use(logger);
 
-app.use("/api/users", userRoutes);
-
 app.use(
   cors({
     origin: "http://localhost:3000", // Allow only localhost:3000
@@ -22,8 +20,9 @@ app.use(
     credentials: false, // Allow cookies to be sent with requests
   })
 );
-
+app.options("*", cors());
 //проверка входящего запроса на действительный токен JWT
+app.use("/api/users", userRoutes);
 app.use("/api/teams", authMiddleware, teamRoutes);
 app.use("/api/achievements", authMiddleware, achievementRoutes);
 
