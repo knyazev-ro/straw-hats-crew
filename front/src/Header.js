@@ -19,7 +19,7 @@ const Header = () => {
       {/* Logo and Title */}
       <div className="flex items-center space-x-3">
         <img
-          src="https://via.placeholder.com/50" // Укажите путь к вашему логотипу
+          src="https://img.icons8.com/?size=100&id=toPAhRhOCl74&format=png&color=000000" // Укажите путь к вашему логотипу
           alt="Logo"
           className="w-12 h-12 rounded-full border-2 border-black"
         />

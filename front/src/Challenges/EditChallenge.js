@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const EditChallenge = ({ onSubmit }) => {
+  const {id} = useParams();
   const [formData, setFormData] = useState({
     startDate: '',
     endDate: '',
@@ -10,6 +13,27 @@ const EditChallenge = ({ onSubmit }) => {
     achivementId: '',
     teams: [],
   });
+
+  const fetchData = async (id) => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/api/challenge/edit",
+        {
+          params: {
+            id: id,
+          },
+        }
+      );
+      setFormData(response);
+    } catch (error) {
+      console.log("Ошибочка...");
+    }
+  };
+  
+  if(id !== undefined){
+    fetchData(id);
+  }
+
 
   const achievements = [
     {id:1 , title: "GOOD BOY"},
@@ -23,8 +47,20 @@ const EditChallenge = ({ onSubmit }) => {
     {id:2 , title: "Семейное"},
   ];
 
+const updateData = async (formData) =>{
+  try{
+  const request = axios.post("http://localhost:5000/api/challenge/update",formData)
+}
+  catch(error){
+    console.log('well...')
+  }
+}
+
   const onSmbt = (e) => {
-    console.log(e);
+    if(id !== undefined){
+      updateData(e)
+    }
+    
   }
 
   const handleChange = (e) => {

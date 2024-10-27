@@ -1,17 +1,17 @@
 const express = require("express");
 const userController = require("../controllers/userController");
 const authMiddleware = require("../middlewares/authMiddleware");
-const router = express.Router();
+const route = express.Router();
 
 //Регистрация пользователя
-router.post("/register", userController.register);
+route.post("/register", userController.register);
 //Авторизация пользователя
-router.post("/login", userController.login);
+route.post("/login", userController.login);
 //Поиск пользователя по ID
-router.get("/find/:id", userController.findById);
+route.get("/find/:id", userController.findById);
 
 //Поиск всех пользователей
-router.get("/findAll", userController.findAll);
+route.get("/findAll", userController.findAll);
 
 // Экспорт маршрутизатора
 module.exports = router;

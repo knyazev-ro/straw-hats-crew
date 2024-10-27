@@ -5,7 +5,7 @@ const router = express.Router();
 router.post("/", challengeController.create);
 router.put("/:id", challengeController.update);
 router.delete("/:id", challengeController.delete);
-router.get("/:id", challengeController.findById);
+router.get("/challenge/:id/posts", challengeController.findById);
 router.get("/", challengeController.findAll);
 
 module.exports = router;
