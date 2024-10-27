@@ -134,7 +134,9 @@ const UserProfileCard = () => {
           </div>
         </div>
 
-        <button className="mt-6 w-full py-2 bg-yellow-500 text-white font-semibold rounded-md shadow-md hover:bg-yellow-600 transition duration-300">
+        <button className="mt-6 w-full py-2 bg-yellow-500 text-white font-semibold rounded-md shadow-md hover:bg-yellow-600 transition duration-300"
+        onClick={handleSave}
+        >
           Сохранить изменения
         </button>
       </div>
