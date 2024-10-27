@@ -1,6 +1,11 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const UserProfileCard = () => {
+
+  const navigate = useNavigate();
+
   const [profilePic, setProfilePic] = useState('');
   const [firstName, setFirstName] = useState('Иван');
   const [lastName, setLastName] = useState('Иванов');
@@ -9,11 +14,41 @@ const UserProfileCard = () => {
   const [username, setUsername] = useState('ivanov');
   const [bio, setBio] = useState('Немного обо мне...');
 
+
+
   const handleProfilePicChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       setProfilePic(URL.createObjectURL(file));
     }
+  };
+
+  const handleSave = ()=> {
+    axios
+      .post('http://localhost:5000/api/users/create', {
+        body: {
+          login: username,
+          password: password,
+          name: firstName,
+          last_name: lastName, 
+          email: email, 
+          bio:bio,
+          profilePic:profilePic,
+          
+
+        },
+      })
+      .then((response) => {
+        navigate('/users/create')
+        console.log(response.data.message);
+      })
+      .catch((error) => {
+        const message =
+          error.response && error.response.data && typeof error.response.data === 'object'
+            ? error.response.data.error // Попробуем получить error из объекта
+            : 'Ошибка авторизации'; // Сообщение по умолчанию
+        console.error('Ошибка авторизации:', message);
+      });
   };
 
   return (

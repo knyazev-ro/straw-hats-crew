@@ -121,7 +121,7 @@ function App() {
     <Route path="/" element={<Challenges challenges={challenges} />} />
       <Route path="/login" element={<AuthForm />} />
       <Route path="/register" element={<RegistrationForm />} />
-       <Route path="/users" element={<UserProfileCard/>}/>
+       <Route path="/users/create" element={<UserProfileCard/>}/>
        {/* Профили динамично */}
 
       <Route path="/feed" element={<MainFeed posts={posts}/>}/>
