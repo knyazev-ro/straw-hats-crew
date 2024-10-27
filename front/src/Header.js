@@ -1,6 +1,6 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaArrowLeft } from 'react-icons/fa';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,11 +23,49 @@ const Header = () => {
           alt="Logo"
           className="w-12 h-12 rounded-full border-2 border-black"
         />
-        <h1 className="text-2xl font-bold tracking-wider text-gray-900">STRAW-HATS-OGGETTO</h1>
+        <h1 className="text-2xl font-bold tracking-wider text-gray-900">
+          STRAW-HATS-OGGETTO
+        </h1>
       </div>
-
       {/* Empty space to balance layout */}
       <div className="w-20"></div>
+      <div className="flex">
+      <button 
+      onClick={()=>
+        navigate("/")
+      }
+      className="flex items-center text-gray-800 hover:text-white hover:bg-yellow-600 transition px-4 py-2 rounded-lg">
+      <span className="font-semibold">Главная</span>
+      </button>
+      <button 
+      onClick={()=>
+        navigate("/admin")
+      }
+      className="flex items-center text-gray-800 hover:text-white hover:bg-yellow-600 transition px-4 py-2 rounded-lg">
+      <span className="font-semibold">Админ-панель</span>
+      </button>
+      <button 
+      onClick={()=>
+        navigate("/challenge")
+      }
+      className="flex items-center text-gray-800 hover:text-white hover:bg-yellow-600 transition px-4 py-2 rounded-lg">
+      <span className="font-semibold">Челленджи</span>
+      </button>
+      <button 
+      onClick={()=>
+        navigate("/teams")
+      }
+      className="flex items-center text-gray-800 hover:text-white hover:bg-yellow-600 transition px-4 py-2 rounded-lg">
+      <span className="font-semibold">Команды</span>
+      </button>
+      <button 
+      onClick={()=>
+        navigate("/callendar")
+      }
+      className="flex items-center text-gray-800 hover:text-white hover:bg-yellow-600 transition px-4 py-2 rounded-lg">
+      <span className="font-semibold">Календарь</span>
+      </button>
+      </div>
     </header>
   );
 };

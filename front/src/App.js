@@ -12,6 +12,9 @@ import ChallengePosts from './Challenges/ChallengePosts';
 import EditTeam from './Team/EditTeam';
 import Footer from './Footer';
 import MainFeed from './Feed/MainFeed';
+import AdminPanel from './Admin/AdminPanel';
+import TeamCard from './Team/TeamCard';
+import Teams from './Team/Teams';
 
 
 function App() {
@@ -146,7 +149,85 @@ function App() {
     },
     // Другие челленджи
   ];
-  
+
+  const teamsData = [
+    {
+      name: "Команда A",
+      lead: {
+        id: 1,
+        username: "ivanov",
+      },
+      members: [
+        { id: 2, username: "petrov" },
+        { id: 3, username: "sidorov" },
+        { id: 4, username: "smirnov" },
+      ],
+      challenge: {
+        id: 5,
+        name: "Челлендж по программированию",
+      },
+      achievements: [
+        { id: 6, name: "Первое место на соревнованиях" },
+        { id: 7, name: "Лучший проект" },
+      ],
+    },
+    {
+      name: "Команда B",
+      lead: {
+        id: 8,
+        username: "mikhailov",
+      },
+      members: [
+        { id: 9, username: "kuznetsov" },
+        { id: 10, username: "stepanova" },
+        { id: 11, username: "belyakov" },
+      ],
+      challenge: {
+        id: 12,
+        name: "Хакатон 2024",
+      },
+      achievements: [
+        { id: 13, name: "Лучший дизайнерский проект" },
+      ],
+    },
+    {
+      name: "Команда C",
+      lead: {
+        id: 14,
+        username: "orlov",
+      },
+      members: [
+        { id: 15, username: "ivanov" },
+        { id: 16, username: "nikolaev" },
+        { id: 17, username: "dmitriev" },
+      ],
+      challenge: {
+        id: 18,
+        name: "Челлендж по анализу данных",
+      },
+      achievements: [
+        { id: 19, name: "Самый креативный подход" },
+        { id: 20, name: "Лучший аналитический отчет" },
+      ],
+    },
+    {
+      name: "Команда D",
+      lead: {
+        id: 21,
+        username: "petrovich",
+      },
+      members: [
+        { id: 22, username: "sergeev" },
+        { id: 23, username: "fedorov" },
+      ],
+      challenge: {
+        id: 24,
+        name: "Соревнование по веб-разработке",
+      },
+      achievements: [],
+    },
+  ];
+
   const location = useLocation();
 
   // Скрыть Header на страницах AuthForm и RegistrationForm
@@ -158,13 +239,13 @@ function App() {
     <div className='py-24'>
 
     <Routes>
-    <Route path="/" element={<Challenges challenges={challenges} />} />
+    <Route path="/challenge" element={<Challenges challenges={challenges} />} />
       <Route path="/login" element={<AuthForm />} />
       <Route path="/register" element={<RegistrationForm />} />
        <Route path="/users/create" element={<UserProfileCard/>}/>
        {/* Профили динамично */}
 
-      <Route path="/feed" element={<MainFeed posts={posts}/>}/>
+      <Route path="/" element={<MainFeed posts={posts}/>}/>
 
       <Route path="/challenge/:id/posts" element={<ChallengePosts/>}/>
       <Route path="/challenge/:id/edit" element={<EditChallenge/>}/>
@@ -172,10 +253,11 @@ function App() {
 
       <Route path="/callendar" element={<BigCalendar events={events}/>}/>
 
+      <Route path="/teams" element={<Teams teams={teamsData}/>}/>
       <Route path="/team/create" element={<EditTeam/>}/>
       <Route path="/team/:id/edit" element={<EditTeam/>}/>
 
-      <Route path="" element={""}/>
+      <Route path="/admin" element={<AdminPanel/>}/>
     </Routes>
     </div>
     {!hideHeader && <Footer />}
