@@ -11,7 +11,7 @@ const AboutCard = ({ user }) => {
   } = user;
 
   return (
-    <div className="max-w-xs mx-auto bg-black shadow-lg rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+    <div className="min-w-48 mx-auto bg-black shadow-lg rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
       {/* Изображение профиля */}
       <div className="p-4">
         <img
@@ -22,8 +22,8 @@ const AboutCard = ({ user }) => {
       </div>
 
       {/* Информация о профиле */}
-      <div className="text-center px-6 pb-4">
-        <h3 className="text-xl font-bold text-yellow-400">{firstName} {lastName}</h3>
+      <div className="flex flex-col flex-wrap text-center px-3 pb-4">
+        <h3 className="text-mds font-bold text-yellow-400">{firstName} {lastName}</h3>
         <p className="text-sm text-yellow-300 mb-2">@{username}</p>
         
         <p className="text-yellow-200 text-sm">{bio}</p>

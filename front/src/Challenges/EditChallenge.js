@@ -14,16 +14,16 @@ const EditChallenge = ({ onSubmit }) => {
     teams: [],
   });
 
+  const [challengeTypes, setChallengeTypes] = useState([
+    {id:1 , title: "Одиночное"},
+    {id:2 , title: "Командное"},
+    {id:3 , title: "Семейное"},
+  ]);
+
   const fetchData = async (id) => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/challenge/edit",
-        {
-          params: {
-            id: id,
-          },
-        }
-      );
+        `http://localhost:5000/api/challenge/${id}/edit`);
       setFormData(response);
     } catch (error) {
       console.log("Ошибочка...");
@@ -39,12 +39,6 @@ const EditChallenge = ({ onSubmit }) => {
     {id:1 , title: "GOOD BOY"},
     {id:2 , title: "CRAZY DUDE"},
     {id:2 , title: "CHILL GIRL"},
-  ];
-  
-  const challengeTypes =[
-    {id:1 , title: "Одиночное"},
-    {id:2 , title: "Командное"},
-    {id:2 , title: "Семейное"},
   ];
 
 const updateData = async (formData) =>{

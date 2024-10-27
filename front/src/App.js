@@ -10,6 +10,8 @@ import AuthForm from './Auth/AuthForm';
 import Header from './Header';
 import ChallengePosts from './Challenges/ChallengePosts';
 import EditTeam from './Team/EditTeam';
+import Footer from './Footer';
+import MainFeed from './Feed/MainFeed';
 
 
 function App() {
@@ -122,7 +124,7 @@ function App() {
        <Route path="/users" element={<UserProfileCard/>}/>
        {/* Профили динамично */}
 
-      <Route path="/feed" element={<PostFeed posts={posts}/>}/>
+      <Route path="/feed" element={<MainFeed posts={posts}/>}/>
 
       <Route path="/challenge/:id/posts" element={<ChallengePosts/>}/>
       <Route path="/challenge/:id/edit" element={<EditChallenge/>}/>
@@ -136,6 +138,7 @@ function App() {
       <Route path="" element={""}/>
     </Routes>
     </div>
+    {!hideHeader && <Footer />}
   </>
   );
 }

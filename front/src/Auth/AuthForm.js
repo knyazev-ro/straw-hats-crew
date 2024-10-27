@@ -18,6 +18,7 @@ const AuthForm = () => {
         },
       })
       .then((response) => {
+        navigate('/feed')
         console.log(response.data.message);
       })
       .catch((error) => {
