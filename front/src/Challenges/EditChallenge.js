@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const EditChallenge = ({ onSubmit, achievements, teams, challengeTypes }) => {
+const EditChallenge = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
     startDate: '',
     endDate: '',
@@ -10,6 +10,22 @@ const EditChallenge = ({ onSubmit, achievements, teams, challengeTypes }) => {
     achivementId: '',
     teams: [],
   });
+
+  const achievements = [
+    {id:1 , title: "GOOD BOY"},
+    {id:2 , title: "CRAZY DUDE"},
+    {id:2 , title: "CHILL GIRL"},
+  ];
+  
+  const challengeTypes =[
+    {id:1 , title: "Одиночное"},
+    {id:2 , title: "Командное"},
+    {id:2 , title: "Семейное"},
+  ];
+
+  const onSmbt = (e) => {
+    console.log(e);
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;

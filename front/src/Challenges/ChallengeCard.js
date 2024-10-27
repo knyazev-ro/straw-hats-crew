@@ -35,7 +35,7 @@ const ChallengeCard = ({ challenge }) => {
                 <h3 className="text-lg font-bold text-gray-800 mb-2">Команды:</h3>
                 <ul className="list-disc list-inside space-y-1">
                   {teams.map((team) => (
-                    <li key={team.id} className="text-gray-700">
+                    <li key={team.id} className="px-2 text-white bg-black rounded-full">
                       {team.name}
                     </li>
                   ))}
@@ -44,7 +44,7 @@ const ChallengeCard = ({ challenge }) => {
 
         <div className="mt-4">
           <span className="font-semibold text-gray-800">Достижение:</span>
-          <span className="bg-yellow-100 text-yellow-800 font-bold py-1 px-2 ml-2 rounded-lg">
+          <span className="bg-yellow-50 text-black font-bold py-1 px-2 ml-2 rounded-lg">
             {achivement.name}
           </span>
         </div>

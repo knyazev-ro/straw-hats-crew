@@ -3,13 +3,14 @@ import './App.css';
 import Auth from './Auth/AuthForm';
 import RegistrationForm from './Auth/RegistrationForm';
 import UserProfileCard from './Users/UserProfileCard';
-import PostCard from './Components/PostCard'; 
+// import PostCard from './Components/PostCard'; 
 import PostFeed from './Feed/PostFeed';
 import BigCalendar from './Components/BigCalendar';
 import EditChallenge from './Challenges/EditChallenge';
 import Challenges from './Challenges/Challenges';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import AuthForm from './Auth/AuthForm';
+import Header from './Header';
 
 function App() {
 
@@ -48,16 +49,6 @@ function App() {
     // другие события...
   ];
   
-  
-  const onSmbt = (e) => {
-    console.log(e);
-  }
-  
-  const teams = [
-    {id: 1, name: "Team Soft"},
-    {ud: 2, name: "Team Boogie"},
-  ];
-  
   const achievements = [
     {id:1 , title: "GOOD BOY"},
     {id:2 , title: "CRAZY DUDE"},
@@ -74,12 +65,12 @@ function App() {
     {
       id: 1,
       name: "Челлендж 1",
-      description: "Описание челленджа 1",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry..",
       startDate: "2024-11-01",
       endDate: "2024-11-15",
       type: "INDIVIDUAL",
       teams: [{ id: 1, name: "Команда 1" }, { id: 2, name: "Команда 2" }],
-      achivement: { id: 1, name: "Достижение 1" },
+      achivement: { id: 1, name: "Главный прогульщик" },
     },
     {
       id: 2,
@@ -89,7 +80,7 @@ function App() {
       endDate: "2024-11-07",
       type: "TEAM",
       teams: [{ id: 1, name: "Команда 1" }, { id: 2, name: "Команда 2" }],
-      achivement: { id: 1, name: "Достижение 2" },
+      achivement: { id: 1, name: "Хокаге" },
     },
     {
       id: 3,
@@ -99,28 +90,46 @@ function App() {
       endDate: "2024-11-07",
       type: "TEAM",
       // teams: [{ id: 1, name: "Команда 1" }, { id: 2, name: "Команда 2" }],
-      achivement: { id: 1, name: "Достижение 2" },
+      achivement: { id: 1, name: "Будущий Король Пиратов!" },
+    },
+    {
+      id: 1,
+      name: "Челлендж 1",
+      description: "Описание челленджа 1",
+      startDate: "2024-11-01",
+      endDate: "2024-11-15",
+      type: "INDIVIDUAL",
+      teams: [{ id: 1, name: "Команда 1" }, { id: 2, name: "Команда 2" }],
+      achivement: { id: 1, name: "Достижение 1" },
     },
     // Другие челленджи
   ];
   
+  const location = useLocation();
+
+  // Скрыть Header на страницах AuthForm и RegistrationForm
+  const hideHeader = location.pathname === '/login' || location.pathname === '/register';
 
   return (
+    <>
+    {!hideHeader && <Header />}
+    <div className='py-24'>
 
-    <Router>
     <Routes>
+    <Route path="/" element={<Challenges challenges={challenges} />} />
       <Route path="/login" element={<AuthForm />} />
       <Route path="/register" element={<RegistrationForm />} />
-      <Route path="/" element={<Challenges challenges={challenges} />} />
-       {/* <Route path="" element={""}/>
+       <Route path="/users" element={<UserProfileCard/>}/>
+       {/* Профили динамично */}
+
+      <Route path="challenge/1/posts" element={<PostFeed posts={posts}/>}/>
+      <Route path="/challenge/1/edit" element={<PostFeed posts={posts}/>}/>
+      <Route path="/challenge/create" element={<EditChallenge/>}/>
+      <Route path="/callendar" element={<BigCalendar events={events}/>}/>
       <Route path="" element={""}/>
-      <Route path="" element={""}/>
-      <Route path="" element={""}/> */}
     </Routes>
-  </Router>
-
-    // <AuthForm></AuthForm>
-
+    </div>
+  </>
   );
 }
 
