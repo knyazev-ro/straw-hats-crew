@@ -34,8 +34,6 @@ const UserProfileCard = () => {
           email: email, 
           bio:bio,
           profilePic:profilePic,
-          
-
         },
       })
       .then((response) => {
