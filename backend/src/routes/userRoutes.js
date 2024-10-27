@@ -8,10 +8,10 @@ route.post("/register", userController.register);
 //Авторизация пользователя
 route.post("/login", userController.login);
 //Поиск пользователя по ID
-route.get("/find/:id", userController.findById);
+route.get("/findUser/:id", userController.findById);
 
 //Поиск всех пользователей
-route.get("/findAll", userController.findAll);
+route.get("/findAllUser", userController.findAll);
 
 // Экспорт маршрутизатора
 module.exports = router;

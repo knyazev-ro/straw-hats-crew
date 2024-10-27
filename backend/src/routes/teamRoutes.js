@@ -4,19 +4,19 @@ const teamController = require("../controllers/teamController");
 const router = express.Router();
 
 //Регистрация пользователя
-router.post("/create", teamController.create);
+router.post("/team/create", teamController.create);
 //Авторизация пользователя
-router.post("/delete", teamController.delete);
+router.post("/team/delete", teamController.delete);
 //Поиск пользователя по ID
-router.get("/find/:id", teamController.findById);
+router.get("/teamfind/:id", teamController.findById);
 
 //Добавление пользователя в команду
-router.post("/add/:user", teamController.addUser);
+router.post("/teamadd/:user", teamController.addUser);
 //Удаление пользователя из команды
-router.post("/add/:user", teamController.addUser);
+router.post("/teamadd/:user", teamController.addUser);
 
 //Поиск всех пользователей
-router.get("/del/:user", teamController.findAll);
+router.get("/teamdel/:user", teamController.findAll);
 
 // Экспорт маршрутизатора
 module.exports = router;
