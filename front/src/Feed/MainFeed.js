@@ -3,6 +3,7 @@ import PostCard from "../Components/PostCard";
 import BigCalendar from "../Components/BigCalendar";
 import AboutCard from "../Users/AboutCard";
 import SmallChallenges from "../Challenges/SmallChallenges";
+import SmallTeams from "../Team/SmallTeams";
 
 const MainFeed = ({ posts }) => {
   //Для создания
@@ -58,12 +59,91 @@ const MainFeed = ({ posts }) => {
     },
     // Другие челленджи
   ];
+
+  const teamsData = [
+    {
+      name: "Команда A",
+      lead: {
+        id: 1,
+        username: "ivanov",
+      },
+      members: [
+        { id: 2, username: "petrov" },
+        { id: 3, username: "sidorov" },
+        { id: 4, username: "smirnov" },
+      ],
+      challenge: {
+        id: 5,
+        name: "Челлендж по программированию",
+      },
+      achievements: [
+        { id: 6, name: "Первое место на соревнованиях" },
+        { id: 7, name: "Лучший проект" },
+      ],
+    },
+    {
+      name: "Команда B",
+      lead: {
+        id: 8,
+        username: "mikhailov",
+      },
+      members: [
+        { id: 9, username: "kuznetsov" },
+        { id: 10, username: "stepanova" },
+        { id: 11, username: "belyakov" },
+      ],
+      challenge: {
+        id: 12,
+        name: "Хакатон 2024",
+      },
+      achievements: [
+        { id: 13, name: "Лучший дизайнерский проект" },
+      ],
+    },
+    {
+      name: "Команда C",
+      lead: {
+        id: 14,
+        username: "orlov",
+      },
+      members: [
+        { id: 15, username: "ivanov" },
+        { id: 16, username: "nikolaev" },
+        { id: 17, username: "dmitriev" },
+      ],
+      challenge: {
+        id: 18,
+        name: "Челлендж по анализу данных",
+      },
+      achievements: [
+        { id: 19, name: "Самый креативный подход" },
+        { id: 20, name: "Лучший аналитический отчет" },
+      ],
+    },
+    {
+      name: "Команда D",
+      lead: {
+        id: 21,
+        username: "petrovich",
+      },
+      members: [
+        { id: 22, username: "sergeev" },
+        { id: 23, username: "fedorov" },
+      ],
+      challenge: {
+        id: 24,
+        name: "Соревнование по веб-разработке",
+      },
+      achievements: [],
+    },
+  ];
   
   //Для редактирования
   return (
     <div className="bg-yellow-50 min-h-screen py-8 flex justify-center gap-2">
        <AboutCard user={userData}/>
       <div className="flex flex-col-reverse">
+      {/* <SmallTeams teams={teamsData}/> */}
      <SmallChallenges challenges={challenges}/>
       <BigCalendar/>
       </div>
