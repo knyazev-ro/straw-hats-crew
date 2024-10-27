@@ -6,7 +6,7 @@ const router = express.Router();
 //Регистрация пользователя
 router.post("/register", userController.register);
 //Авторизация пользователя
-router.post("/login", userController.login);
+router.post("/api/users/login", userController.login);
 //Поиск пользователя по ID
 router.get("/findUser/:id", userController.findById);
 
