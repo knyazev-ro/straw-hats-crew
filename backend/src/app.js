@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const userRoutes = require("./routes/userRoutes");
+const postRoutes = require("./routes/postRoutes");
+const votingRoutes = require("./routes/votingRoutes");
+const voteRoutes = require("./routes/voteRoutes");
 const teamRoutes = require("./routes/teamRoutes");
 const achievementRoutes = require("./routes/achievementRoutes");
 const cors = require("cors");
@@ -25,6 +28,9 @@ app.options("*", cors());
 app.use("/api/users", userRoutes);
 app.use("/api/teams", authMiddleware, teamRoutes);
 app.use("/api/achievements", authMiddleware, achievementRoutes);
+app.use("/api/posts", postRoutes);
+app.use("/api/voting", votingRoutes);
+app.use("/api/votes", voteRoutes);
 
 app.use(errorHandler);
 
