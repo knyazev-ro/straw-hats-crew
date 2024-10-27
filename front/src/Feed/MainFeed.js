@@ -29,7 +29,7 @@ const MainFeed = ({ posts }) => {
     {
       id: 2,
       name: "Волонтерство на Большой Садовой",
-      description: "Всякое бла бла бла",
+      description: "Помощь на ул. Большая Садовая",
       startDate: "2024-11-02",
       endDate: "2024-11-07",
       type: "TEAM",
@@ -38,8 +38,8 @@ const MainFeed = ({ posts }) => {
     },
     {
       id: 3,
-      name: "Утренник",
-      description: "Всякое бла бла бла",
+      name: "Утренняя рутина",
+      description: "Утро, кофе, обязанности",
       startDate: "2024-11-02",
       endDate: "2024-11-07",
       type: "TEAM",
@@ -49,12 +49,12 @@ const MainFeed = ({ posts }) => {
     {
       id: 1,
       name: "Корпоратив",
-      description: "Описание челленджа 1",
+      description: "Помогите в планировке будущего корпоратива",
       startDate: "2024-11-01",
       endDate: "2024-11-15",
       type: "INDIVIDUAL",
       teams: [{ id: 1, name: "Команда 1" }, { id: 2, name: "Команда 2" }],
-      achivement: { id: 1, name: "Достижение 1" },
+      achivement: { id: 1, name: "Царь горы" },
     },
     // Другие челленджи
   ];
