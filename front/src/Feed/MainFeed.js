@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import PostCard from "../Components/PostCard";
 import BigCalendar from "../Components/BigCalendar";
 import AboutCard from "../Users/AboutCard";
 import SmallChallenges from "../Challenges/SmallChallenges";
 import SmallTeams from "../Team/SmallTeams";
+import { useSearchParams } from "react-router-dom";
+import axios from "axios";
+
 
 const MainFeed = ({ posts }) => {
+  const url ="http://localhost:5000";
+  const [events, setEvents] = useState([]);
   //Для создания
-  // axios.get('http://localhost:5000/api/challenges/create')
+  // axios.get(url+'/api/challenges/create')
+
+const fetchCalendarEvents = async (user_id) => {
+  const calendarEvents = await axios.get(url+`/api/calendar/${user_id}index`);
+  setEvents(calendarEvents);
+}
+
+// const fetch
+
   const userData = {
     profilePic: "https://yastatic.net/naydex/yandex-search/FkiTn7055/9c341eeJWwU4/g7rYLXO8QsErVPVOMip37f-uUX3J-mSZ3c8Zze9w50xEiC8AqDl0CcbFWhxmu5bg-yJ4RWusKgguoRXgLl4122EI2x5krmGijcf3v0J6xilOyuEYannA",
     firstName: "Иван",

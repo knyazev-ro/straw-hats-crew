@@ -1,12 +1,78 @@
+### Для фронтенда на React.js
+```shell
+cd /front
+npm install
+```
+Фронтенд написан с использованием React. Среди особенностей - использование Tailwind CSS вместо обычного CSS. 
+
+Tailwind используется абсолютно в каждом компоненте. Конфигурации Tailwind CSS расположены в файле *tailwind.config.js*. 
+Поподробнее можно прочитать об этом здесь: https://tailwindcss.ru/
+
+Запуск фронт-части осуществляется через команду:
+```
+npm start dev
+```
+
+### Для бэкенда на Node.js
+После запуска фронтенда создаем второй терминал в корневой директории проекта, в котором выполняем следующие команды:
+```shell
+cd /backend
+npm install
+npm run dev
+```
+
+### Полезные команды
+
+Позволяет перемещаться по директориям
+```shell
+cd
+```
+
+Подняться выше по директории. Например вы были в папке /one/two, а при помощи данной команды вы теперь в папке /one.
+```shell
+cd ..
+```
+
+Когда загружаете чужой проект, который работает на js, не забывайте использовать данную команду. Если вы в команде активно устанавливаете новые библиотеки, то после загрузки на локальную ветку удаленной, не забудьте ее выполнить. Частая ошибка.
+```shell
+npm install
+```
+
+Частые команды для работы с git.
+```shell
+git pull
+git fetch
+git push
+git status
+git add
+git add -A
+git checkout
+git rebase
+```
+
+Полезные команды для работы в Linux:
+```shell
+cat <имя файла>
+gedit <имя файла>
+| grep <что нужно найти>
+```
+Можно использовать сочетания, по типу:
+```shell
+cat <имя файла> | grep  <что нужно найти>
+```
+
 ## Существующие маршруты на стороне клиента - Фронт
-- /login
-- /register
-- /users/create
-- /feed
-- /challenge/:id/posts
-- /challenge/:id/edit
-- /challenge/create
-- /callendar
-- /team/create
-- /team/:id/edit
+```shell
+/
+/login
+/register
+/users/create
+/feed
+/challenge/:id/posts
+/challenge/:id/edit
+/challenge/create
+/callendar
+/team/create
+/team/:id/edit
+```
 

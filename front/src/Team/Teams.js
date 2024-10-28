@@ -5,7 +5,7 @@ const Teams = ({ teams }) => {
   return (
     <div className="flex flex-wrap gap-6 px-4">
       {teams.map((team) => (
-        <a href={team.id ? `/team/${team.id}/posts` : ''}>
+        <a href={team.id ? `/team/${team.id}/users` : ''}>
         <TeamCard key={team.id} team={team} />
         </a>
       ))}

@@ -25,10 +25,10 @@ function App() {
     {
       avatar: 'https://via.placeholder.com/50',
       username: 'johndoe',
-      content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
       image: 'https://img.freepik.com/free-photo/medium-shot-contemplative-man-seaside_23-2150531618.jpg?t=st=1729997770~exp=1730001370~hmac=97faad179b4aa270fb5737e8e8c8f65fd03fb2c274eae84c80ab1ff5ef9c73f2&w=996',
       voteOptions: ["Синий", "Зелёный", "Красный", "Желтый"],
-      challenge: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      challenge: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
     },
     {
       avatar: 'https://via.placeholder.com/50',
@@ -152,6 +152,7 @@ function App() {
 
   const teamsData = [
     {
+      id: 1,
       name: "Команда A",
       lead: {
         id: 1,
@@ -172,6 +173,7 @@ function App() {
       ],
     },
     {
+      id: 2,
       name: "Команда B",
       lead: {
         id: 8,
@@ -191,6 +193,7 @@ function App() {
       ],
     },
     {
+      id: 3,
       name: "Команда C",
       lead: {
         id: 14,
@@ -211,6 +214,7 @@ function App() {
       ],
     },
     {
+      id: 4,
       name: "Команда D",
       lead: {
         id: 21,
